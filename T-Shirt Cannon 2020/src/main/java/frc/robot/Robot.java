@@ -20,10 +20,10 @@ import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
-import edu.wpi.first.wpilibj.DoubleSolenoid;
+//import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
-import static edu.wpi.first.wpilibj.DoubleSolenoid.Value;
+//import static edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 
 
 public class Robot extends TimedRobot {
@@ -34,8 +34,7 @@ public class Robot extends TimedRobot {
  
   VictorSP frontRight = new VictorSP(3);
   VictorSP rearRight = new VictorSP(4);
-  SpeedControllerGroup m_right = new SpeedControllerGroup(frontRight, rearRight); 
-  //Might need to use the follow method instead of the speed controller group
+  SpeedControllerGroup m_right = new SpeedControllerGroup(frontRight, rearRight);
  
   DifferentialDrive m_robotDrive = new DifferentialDrive(m_left, m_right);
   
@@ -55,15 +54,15 @@ public class Robot extends TimedRobot {
 
   public Robot() {
 
-  Turret_Left = new Solenoid(1);
-  Turret_Right = new Solenoid(2);
-  
-  Cannon1 = new Solenoid(3);
-  Cannon2 = new Solenoid(4);
-  Cannon3 = new Solenoid(5);
-  Cannon4 = new Solenoid(6);
-  Cannon5 = new Solenoid(7);
-  Cannon6 = new Solenoid(8);
+    Turret_Left = new Solenoid(0);
+    Turret_Right = new Solenoid(1);
+    
+    Cannon1 = new Solenoid(2);
+    Cannon2 = new Solenoid(3);
+    Cannon3 = new Solenoid(4);
+    Cannon4 = new Solenoid(5);
+    Cannon5 = new Solenoid(6);
+    Cannon6 = new Solenoid(7);
   
 
   //Check if the .kleft and .kright correspond to turret movement
@@ -84,18 +83,18 @@ public class Robot extends TimedRobot {
     //Turret Control
 
     if(controller.getBumper(Hand.kLeft)){
-      Turret_Left.set(Value.kForward);
-      Turret_Right.set(Value.kReverse);
+      Turret_Left.set(true);
+      Turret_Right.set(false);
     }
 
     if(controller.getBumper(Hand.kRight)){
-      Turret_Left.set(Value.kReverse);
-      Turret_Right.set(Value.kForward);
+      Turret_Left.set(false);
+      Turret_Right.set(true);
     }  
 
     if(controller.getYButton()){
-      Turret_Left.set(Value.kOff);
-      Turret_Right.set(Value.kOff);
+      Turret_Left.set(false);
+      Turret_Right.set(false);
     }
 
     

@@ -1,5 +1,12 @@
 [
   {
+    "artifact": "frcJava (in project T-Shirt Cannon 2020)",
+    "target": "roborio",
+    "debugfile": "frcJava_roborio.debugconfig",
+    "project": "T-Shirt Cannon 2020",
+    "language": "java"
+  },
+  {
     "artifact": "frcJava (in project T-Shirt_Cannon_2)",
     "target": "roborio",
     "debugfile": "frcJava_roborio.debugconfig",
